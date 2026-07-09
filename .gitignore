@@ -1,0 +1,19 @@
+# VS Code settings
+.vscode/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+.env
+
+# Jupyter Notebook cache
+.ipynb_checkpoints/
+
+# macOS files
+.DS_Store
+
+# Windows thumbnail cache
+Thumbs.db
