@@ -4,9 +4,12 @@ import pickle
 app = Flask(__name__)
 
 # Load trained model and scaler
-model = pickle.load(open("logistic_model.pkl", "rb"))
-scaler = pickle.load(open("scaler.pkl", "rb"))
+import os
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model = pickle.load(open(os.path.join(BASE_DIR, "logistic_model.pkl"), "rb"))
+scaler = pickle.load(open(os.path.join(BASE_DIR, "scaler.pkl"), "rb"))
 # Home page
 @app.route('/')
 def home():
