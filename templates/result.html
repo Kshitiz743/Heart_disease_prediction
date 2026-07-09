@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Prediction Result</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="overlay">
+
+<div class="result-card">
+
+<h1><i class="fa-solid fa-heart-pulse"></i> Prediction Result</h1>
+
+{% if "High" in prediction %}
+
+<div class="icon danger">
+<i class="fa-solid fa-heart-crack"></i>
+</div>
+
+<h2 class="danger-text">{{ prediction }}</h2>
+
+{% else %}
+
+<div class="icon safe">
+<i class="fa-solid fa-heart-circle-check"></i>
+</div>
+
+<h2 class="safe-text">{{ prediction }}</h2>
+
+{% endif %}
+
+<div class="confidence">
+
+<h3>Prediction Confidence</h3>
+
+<div class="circle">
+
+{{ probability }}%
+
+</div>
+
+</div>
+
+<p class="note">
+
+This prediction is generated using a Logistic Regression Machine Learning model.
+
+<br><br>
+
+<strong>Disclaimer:</strong> This application is intended for educational purposes only and should not be used as a substitute for professional medical advice.
+
+</p>
+
+<a href="/">
+
+<button>
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Predict Again
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
