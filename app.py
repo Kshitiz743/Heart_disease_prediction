@@ -4,34 +4,18 @@ import pandas as pd
 import os
 
 app = Flask(__name__)
-
-# =====================================================
-# LOAD FILES
-# =====================================================
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
 model = pickle.load(open(os.path.join(BASE_DIR, "logistic_model.pkl"), "rb"))
 scaler = pickle.load(open(os.path.join(BASE_DIR, "scaler.pkl"), "rb"))
 encoders = pickle.load(open(os.path.join(BASE_DIR, "encoders.pkl"), "rb"))
-
-# =====================================================
-# HOME PAGE
-# =====================================================
 
 @app.route("/")
 def home():
     return render_template("index.html")
 
-# =====================================================
-# PREDICTION
-# =====================================================
-
 @app.route("/predict", methods=["POST"])
 def predict():
-
     try:
-
         age = float(request.form["age"])
         gender = request.form["gender"]
         bp = float(request.form["blood_pressure"])
@@ -52,8 +36,6 @@ def predict():
         fasting = float(request.form["fasting"])
         crp = float(request.form["crp"])
         homocysteine = float(request.form["homocysteine"])
-
-        # Encode categorical values
 
         gender = encoders["Gender"].transform([gender])[0]
 
@@ -146,7 +128,6 @@ def predict():
             recommendation="Please enter valid values."
         )
 
-# =====================================================
 
 if __name__ == "__main__":
     app.run(debug=True)
