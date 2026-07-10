@@ -134,6 +134,13 @@ Contributions are welcome! Feel free to fork the repository, create a new branch
 ## 📄 License
 
 This project is intended for educational purposes.
+Copyright © 2026 Kshitiz Gupta
+
+All Rights Reserved.
+
+This source code is the intellectual property of the author.
+No part of this repository may be copied, modified, distributed,
+or used for commercial purposes without prior written permission.
 
 ## 👨‍💻 Author
 
