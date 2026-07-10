@@ -3,23 +3,14 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Prediction Result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet"
-href="{{ url_for('static', filename='style.css') }}">
+    <title>Prediction Result</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
-rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
 
 </head>
 
@@ -27,63 +18,70 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <div class="overlay">
 
-<div class="result-card">
+    <div class="container result-card">
 
-<h1><i class="fa-solid fa-heart-pulse"></i> Prediction Result</h1>
+        <h1>❤️ Heart Disease Prediction Report</h1>
 
-{% if "High" in prediction %}
+        <p class="subtitle">
+            Machine Learning Based Health Assessment
+        </p>
 
-<div class="icon danger">
-<i class="fa-solid fa-heart-crack"></i>
-</div>
+        <div class="result-box">
 
-<h2 class="danger-text">{{ prediction }}</h2>
+            <h2>Your Result</h2>
 
-{% else %}
+            <div class="result">
 
-<div class="icon safe">
-<i class="fa-solid fa-heart-circle-check"></i>
-</div>
+                {{ prediction }}
 
-<h2 class="safe-text">{{ prediction }}</h2>
+            </div>
 
-{% endif %}
+            <div class="probability">
 
-<div class="confidence">
+                <strong>Prediction Confidence</strong>
 
-<h3>Prediction Confidence</h3>
+                <br><br>
 
-<div class="circle">
+                {{ probability }} %
 
-{{ probability }}%
+            </div>
 
-</div>
+            <div class="progress">
 
-</div>
+                <div class="progress-bar"
+                     style="width: {{ probability }}%;">
 
-<p class="note">
+                    {{ probability }}%
 
-This prediction is generated using a Logistic Regression Machine Learning model.
+                </div>
 
-<br><br>
+            </div>
 
-<strong>Disclaimer:</strong> This application is intended for educational purposes only and should not be used as a substitute for professional medical advice.
+            <div class="recommendation">
 
-</p>
+                <h3>💡 Recommendation</h3>
 
-<a href="/">
+                <br>
 
-<button>
+                <p>
 
-<i class="fa-solid fa-arrow-left"></i>
+                    {{ recommendation }}
 
-Predict Again
+                </p>
 
-</button>
+            </div>
 
-</a>
+            <br>
 
-</div>
+            <a href="/" class="back-btn">
+
+                🔄 Predict Again
+
+            </a>
+
+        </div>
+
+    </div>
 
 </div>
 
